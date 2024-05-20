@@ -34,18 +34,19 @@ input {
 }
 
 .btn:hover {
-  background-color: dodgerblue;
+  background-color: rgb(222, 204, 7);
   color: black;
 }
 
 .btn {
-  width: max-content;
+  text-align: center;
   width: max-content;
   margin: 5px;
   padding: 10px 40px 10px 40px;
   color: white;
-  background-color: green;
+  background-color: rgb(0, 0, 0);
 }
+
 mat-card{
   margin: 0 auto ;
   width: 30%;

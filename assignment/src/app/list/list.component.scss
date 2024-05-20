@@ -13,14 +13,14 @@ body {
 .mat-elevation-z8 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  color: white;
+  color: rgb(0, 0, 0);
   margin: auto;
   width: 90%;
-  border: dodgerblue 3px solid;
+  border: rgb(222, 204, 7) 3px solid;
 }
 
 th {
-  background-color: dodgerblue;
+  background-color: rgb(222, 204, 7);
 }
 
 th, td {
@@ -29,7 +29,7 @@ th, td {
 }
 
 td {
-  background-color: seagreen;
+  background-color: rgb(255, 227, 227);
 }
 
 
@@ -40,12 +40,12 @@ td {
   position: absolute;
   z-index: 100;
   width: 99%;
-  background-color: seagreen;
+  background-color: rgb(0, 0, 0);
   margin: auto;
 }
 
 .actbtnn:hover {
-  background-color: dodgerblue;
+  background-color: rgb(222, 204, 7);
   color: black;
 }
 
@@ -56,14 +56,12 @@ td {
   padding: 10px 40px 10px 40px;
   text-align: center;
   width: max-content;
-  // margin-left: 1580px;
-
-  //  padding: 5px;
   color: white;
-  background-color: green;
+  background-color: rgb(0, 0, 0);
 }
+
 .actbtn:hover {
-  background-color: dodgerblue;
+  background-color: rgb(222, 204, 7);
   color: black ;
 }
 
@@ -73,8 +71,6 @@ td {
   text-align: center;
   width: max-content;
   margin-left: -5px;
-
-  //  padding: 5px;
   color: white;
-  background-color: green;
+  background-color: rgb(0, 0, 0);
 }

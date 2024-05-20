@@ -8,18 +8,16 @@
   position: absolute;
   z-index: 100;
   width: 99%;
-  background-color: seagreen;
+  background-color: rgb(0, 0, 0);
   margin: auto;
 }
+
 body {
   background-image: url(kep.jpg) ;
   background-size: cover;
   background-position:center;
   height:720px;
   margin: auto;
-
-
-
   padding: 100px ;
 }
 
@@ -35,12 +33,12 @@ input {
 }
 
 .actbtn:hover {
-  background-color: dodgerblue;
-  color: black ;
+  background-color: rgb(222, 204, 7);
+  color: black;
 }
 
 .actbtnn:hover {
-  background-color: dodgerblue;
+  background-color: rgb(222, 204, 7);
   color: black;
 }
 
@@ -50,26 +48,22 @@ input {
   text-align: center;
   width: max-content;
   margin-left: -5px;
-
-//  padding: 5px;
   color: white;
-  background-color: green;
+  background-color: rgb(0, 0, 0);
 }
+
 // kijeletkezés gomb
 .actbtnn {
   padding: 10px 40px 10px 40px;
   text-align: center;
   width: max-content;
-  // margin-left: 1580px;
-
-  //  padding: 5px;
   color: white;
-  background-color: green;
+  background-color: rgb(0, 0, 0);
 }
 
 
 .btn:hover {
-  background-color: dodgerblue;
+  background-color: rgb(222, 204, 7);
   color: black;
 }
 
@@ -78,7 +72,7 @@ input {
   margin: 5px;
   padding: 10px 40px 10px 40px;
   color: white;
-  background-color: green;
+  background-color: rgb(0, 0, 0);
 }
 
 mat-card{
