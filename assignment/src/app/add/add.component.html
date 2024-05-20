@@ -17,26 +17,59 @@
 
   <p></p>
 <mat-card class="example-card">
-  <mat-panel-title class="mat-title"> Kifogott hal hozzáadása </mat-panel-title>
+  <mat-panel-title class="mat-title"> Parfüm hozzáadása </mat-panel-title>
 
     <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="form" >
       <mat-form-field >
-        <input matInput type="text" placeholder="Vízterület neve" formControlName="lakeName">
+        <input matInput type="text" placeholder="Parfüm neve" formControlName="parfumeName">
       </mat-form-field>
       <br>
 
       <mat-form-field >
-        <input matInput  placeholder="Víztérkód" type="text"  formControlName="lakeCode">
+        <input matInput  placeholder="Parfüm kódja" type="text"  formControlName="parfumeCode">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field>
+        <mat-label>Típus</mat-label>
+        <mat-select formControlName="type">
+          <mat-option value="Parfume">Parfume</mat-option>
+          <mat-option value="Eau de Parfume">Eau de Parfume</mat-option>
+          <mat-option value="Eau de Toilette">Eau de Toilette</mat-option>
+          <mat-option value="Eau de Cologne">Eau de Cologne</mat-option>
+          <mat-option value="Eau Fraiche">Eau Fraiche</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field>
+        <mat-label>Neme</mat-label>
+        <mat-select formControlName="parfumeFor">
+          <mat-option value="Női">Női</mat-option>
+          <mat-option value="Férfi">Férfi</mat-option>
+          <mat-option value="Uniszex">Uniszex</mat-option>
+        </mat-select>
       </mat-form-field>
       <br>
 
       <mat-form-field >
-        <input matInput  placeholder="Kifogott halfaj" type="text"  formControlName="fish">
+        <input matInput  placeholder="Megjelenés időpontja" type="date" formControlName="releaseDate">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field>
+        <textarea matInput placeholder="Leírás" formControlName="description" 
+                  cdkAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
       </mat-form-field>
       <br>
 
       <mat-form-field >
-        <input matInput  placeholder="Hal súlya(kg)" type="text" formControlName="weight">
+        <input matInput  placeholder="Ár" type="text"  formControlName="price">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field >
+        <input matInput  placeholder="Mennyiség" type="text"  formControlName="amount">
       </mat-form-field>
       <br>
 

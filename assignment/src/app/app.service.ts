@@ -38,16 +38,16 @@ export class AppService {
     );
   }
 
-  createLakee(data): Observable<any> {
-    const url = `${this.serviceURL}/addLakee`;
+  createParfume(data): Observable<any> {
+    const url = `${this.serviceURL}/addParfume`;
     return this.http.post(url, data)
       .pipe(
         catchError(this.errorMgmt)
       );
   }
 
-  getLakee() {
-    return this.http.get(`${this.serviceURL}/getLakee`);
+  getParfume() {
+    return this.http.get(`${this.serviceURL}/getParfume`);
   }
 
   setLoggedInUser(user){

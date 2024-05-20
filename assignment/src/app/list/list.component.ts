@@ -11,23 +11,23 @@ import { AppService } from '../app.service';
 })
 export class ListComponent implements OnInit {
 
-  Lakee: any = [];
+  Parfume: any = [];
   user = new User();
   username: string;
 
   constructor(private router: Router,
               private appService: AppService)
   {
-    this.getLakee();
+    this.getParfume();
     this.getUser();
   }
 
   ngOnInit(): void {
   }
 
-  getLakee() {
-    this.appService.getLakee().subscribe((data) => {
-      this.Lakee = data;
+  getParfume() {
+    this.appService.getParfume().subscribe((data) => {
+      this.Parfume = data;
     });
   }
 

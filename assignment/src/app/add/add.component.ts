@@ -37,20 +37,24 @@ export class AddComponent implements OnInit {
 
   mainForm() {
     this.createForm = this.formBuilder.group({
-      lakeName: ['', [Validators.required]],
-      lakeCode: ['', [Validators.required, Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$')]],
-      fish: ['', [Validators.required]],
-      weight: ['', [Validators.required, Validators.pattern('^[-+]?[0-9]+(\\.[0-9]+)?$')]]
+      parfumeName: ['', [Validators.required]],
+      parfumeCode: ['', [Validators.required, Validators.pattern('^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$')]],
+      type: ['', [Validators.required]],
+      parfumeFor: ['', [Validators.required]],
+      releaseDate: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      price: ['', [Validators.required, Validators.pattern('^[-+]?[0-9]+(\\.[0-9]+)?$')]],
+      amount: ['', [Validators.required, Validators.pattern('^[-+]?[0-9]+(\\.[0-9]+)?$')]]
     });
   }
 
   onSubmit() {
     this.submitted = true;
     if (!this.createForm.valid) {
-      alert('Nem megfelelőek az adatok! Minden mezőt ki kell tölteni, a hal súlya pedig csak szám lehet.');
+      alert('Nem megfelelőek az adatok! Minden mezőt ki kell tölteni!');
       return false;
     } else {
-      this.appService.createLakee(this.createForm.value).subscribe(
+      this.appService.createParfume(this.createForm.value).subscribe(
         (res) => {
           alert('Hozzáadva.');
           this.ngZone.run(() => this.router.navigateByUrl('/list'));

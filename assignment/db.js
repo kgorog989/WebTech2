@@ -21,26 +21,38 @@ mongo.connect('mongodb://localhost:27017/assignmentDB2', {
 const Schema = mongo.Schema;
 
 const lakeeRoute = express.Router();
-let Lakee = new Schema({
-  lakeName: {
+let Parfume = new Schema({
+  parfumeName: {
     type: String
   },
-  lakeCode: {
+  parfumeCode: {
     type: String
   },
-  fish: {
+  type: {
     type: String
   },
-  weight: {
+  parfumeFor: {
+    type: String
+  },
+  releaseDate: {
+    type: Date
+  },
+  description: {
+    type: String
+  },
+  price: {
+    type: Number
+  },
+  amount: {
     type: Number
   }
 }, {
-  collection: 'lakee'
+  collection: 'parfume'
 });
 
-var lakeeModel = mongo.model('lakees', Lakee, 'lakees');
+var lakeeModel = mongo.model('parfume', Parfume, 'parfume');
 
-lakeeRoute.route('/addLakee').post((req, res, next) => {
+lakeeRoute.route('/addParfume').post((req, res, next) => {
   lakeeModel.create(req.body, (error, data) => {
     if (error) {
       console.log(error)
@@ -50,7 +62,7 @@ lakeeRoute.route('/addLakee').post((req, res, next) => {
   })
 });
 
-lakeeRoute.route('/getLakee').get((req, res) => {
+lakeeRoute.route('/getParfume').get((req, res) => {
   lakeeModel.find((error, data) => {
     if (error) {
       return next(error)
