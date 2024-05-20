@@ -20,7 +20,7 @@ mongo.connect('mongodb://localhost:27017/assignmentDB2', {
 
 const Schema = mongo.Schema;
 
-const lakeeRoute = express.Router();
+const parfumeRoute = express.Router();
 let Parfume = new Schema({
   parfumeName: {
     type: String
@@ -50,10 +50,10 @@ let Parfume = new Schema({
   collection: 'parfume'
 });
 
-var lakeeModel = mongo.model('parfume', Parfume, 'parfume');
+var parfumeModel = mongo.model('parfume', Parfume, 'parfume');
 
-lakeeRoute.route('/addParfume').post((req, res, next) => {
-  lakeeModel.create(req.body, (error, data) => {
+parfumeRoute.route('/addParfume').post((req, res, next) => {
+  parfumeModel.create(req.body, (error, data) => {
     if (error) {
       console.log(error)
     } else {
@@ -62,8 +62,8 @@ lakeeRoute.route('/addParfume').post((req, res, next) => {
   })
 });
 
-lakeeRoute.route('/getParfume').get((req, res) => {
-  lakeeModel.find((error, data) => {
+parfumeRoute.route('/getParfume').get((req, res) => {
+  parfumeModel.find((error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -71,6 +71,20 @@ lakeeRoute.route('/getParfume').get((req, res) => {
     }
   })
 })
+
+parfumeRoute.route('/deleteParfume/:id')
+  .delete((req, res) => {
+    const id = req.params.id;
+    parfumeModel.findByIdAndDelete(id, (error, result) => {
+      if (error) {
+        res.status(500).send({ message: 'Error deleting perfume' });
+      } else if (!result) {
+        res.status(404).send({ message: 'Perfume not found' });
+      } else {
+        res.status(200).send({ message: 'Perfume deleted successfully' });
+      }
+    });
+  });
 
 const userRoute = express.Router();
 let User = new Schema({
@@ -127,7 +141,7 @@ app.use(express.static(path.join(__dirname, 'dist/assignment')));
 app.use('/', express.static(path.join(__dirname, 'dist/assignment')));
 
 app.use('', userRoute)
-app.use('', lakeeRoute)
+app.use('', parfumeRoute)
 
 app.listen(8080);
 console.log('8080 porton elindult az adatbázisszerver.');

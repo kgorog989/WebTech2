@@ -42,6 +42,14 @@ export class ListComponent implements OnInit {
     this.username = JSON.stringify(this.user.uname);
   }
 
+  deleteParfume(id: string, index: number) {
+    if (confirm('Biztosan törli a parfümöt?')) {
+      this.appService.deleteParfume(id).subscribe(() => {
+        this.Parfume.splice(index, 1); // Remove the perfume from the array
+      });
+    }
+  }
+
   logout(){
     this.user = new User();
     this.appService.setLoggedInUser(this.user);

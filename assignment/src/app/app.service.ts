@@ -50,6 +50,14 @@ export class AppService {
     return this.http.get(`${this.serviceURL}/getParfume`);
   }
 
+  deleteParfume(id): Observable<any> {
+    const url = `${this.serviceURL}/deleteParfume/${id}`;
+    return this.http.delete(url, { headers: this.headers })
+      .pipe(
+        catchError(this.errorMgmt)
+      );
+  }
+
   setLoggedInUser(user){
     this.user = user;
   }
