@@ -46,6 +46,14 @@ export class AppService {
       );
   }
 
+  checkParfumeCode(code: string): Observable<boolean> {
+    const url = `${this.serviceURL}/checkParfumeCode/${code}`;
+    return this.http.get<{ exists: boolean }>(url).pipe(
+      map(response => response.exists),
+      catchError(this.errorMgmt)
+    );
+  }
+
   getParfume() {
     return this.http.get(`${this.serviceURL}/getParfume`);
   }

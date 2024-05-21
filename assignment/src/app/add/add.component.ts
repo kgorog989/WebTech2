@@ -50,18 +50,37 @@ export class AddComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
+
     if (!this.createForm.valid) {
       alert('Nem megfelelőek az adatok! Minden mezőt ki kell tölteni!');
       return false;
-    } else {
-      this.appService.createParfume(this.createForm.value).subscribe(
-        (res) => {
-          alert('Hozzáadva.');
-          this.ngZone.run(() => this.router.navigateByUrl('/list'));
-        }, (error) => {
-          alert('Hiba' + error);
-        });
     }
+
+    const parfumeCode = this.createForm.get('parfumeCode').value;
+
+    this.appService.checkParfumeCode(parfumeCode).subscribe(
+      (isUnique) => {
+        if (!isUnique) {
+          alert('A parfümkódnak egyedinek kell lennie!');
+          return false;
+        } else {
+          this.appService.createParfume(this.createForm.value).subscribe(
+            (res) => {
+              alert('Hozzáadva.');
+              this.ngZone.run(() => this.router.navigateByUrl('/list'));
+            },
+            (error) => {
+              alert('A parfümkódnak egyedinek kell lennie!');
+              return false;
+            }
+          );
+        }
+      },
+      (error) => {
+        alert('Hiba: ' + error);
+        return false;
+      }
+    );
   }
 
   getUser() {

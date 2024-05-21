@@ -26,7 +26,8 @@ let Parfume = new Schema({
     type: String
   },
   parfumeCode: {
-    type: String
+    type: String,
+    unique: true
   },
   type: {
     type: String
@@ -52,14 +53,33 @@ let Parfume = new Schema({
 
 var parfumeModel = mongo.model('parfume', Parfume, 'parfume');
 
+parfumeModel.ensureIndexes((err) => {
+  if (err) console.error(err);
+});
+
 parfumeRoute.route('/addParfume').post((req, res, next) => {
   parfumeModel.create(req.body, (error, data) => {
     if (error) {
-      console.log(error)
+      if (error.code === 11000) {
+        res.status(400).send({ message: 'Parfume code must be unique' });
+      } else {
+        next(error);
+      }
     } else {
-      res.json(data)
+      res.json(data);
     }
-  })
+  });
+});
+
+parfumeRoute.route('/checkParfumeCode/:code').get((req, res) => {
+  const code = req.params.code;
+  parfumeModel.findOne({ parfumeCode: code }, (error, data) => {
+    if (error) {
+      res.status(400).send({ exists: false });
+    } else {
+      res.json({ exists: true });
+    }
+  });
 });
 
 parfumeRoute.route('/getParfume').get((req, res) => {
