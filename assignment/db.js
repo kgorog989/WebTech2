@@ -86,6 +86,17 @@ parfumeRoute.route('/deleteParfume/:id')
     });
   });
 
+  parfumeRoute.route('/updateParfume/:id').put((req, res, next) => {
+    const id = req.params.id;
+    parfumeModel.findByIdAndUpdate(id, { $set: req.body }, { new: true }, (error, data) => {
+      if (error) {
+        return next(error);
+      } else {
+        res.json(data);
+      }
+    });
+  });
+
 const userRoute = express.Router();
 let User = new Schema({
   uname: {

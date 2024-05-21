@@ -17,6 +17,7 @@ import { ListComponent } from './list/list.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MaterialModule,
     MatCardModule,
     MatFormFieldModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartsModule
   ],
   providers: [AppService],
   bootstrap: [AppComponent]

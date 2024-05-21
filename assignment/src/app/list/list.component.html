@@ -41,7 +41,15 @@
         <td>{{parfume.releaseDate | date:'yyyy-MM-dd'}}</td>
         <td>{{parfume.description}}</td>
         <td>{{parfume.price}}</td>
-        <td>{{parfume.amount}}</td>
+        <td>
+          <button mat-icon-button color="primary" (click)="decrementAmount(parfume)">
+            <mat-icon>remove</mat-icon>
+          </button>
+          {{parfume.amount}}
+          <button mat-icon-button color="primary" (click)="incrementAmount(parfume)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </td>
         <td>
           <button mat-icon-button class="material-icons" color="warn" (click)="deleteParfume(parfume._id, i)">
             <mat-icon>delete</mat-icon>
@@ -51,6 +59,17 @@
     </table>
 
   </mat-card>
+
+  <div class="chart-container" style="display: block;">
+    <canvas baseChart
+            [data]="pieChartData"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            [colors]="pieChartColors"
+            [options]="pieChartOptions">
+    </canvas>
+  </div>
+
 </body>
 
 </html>

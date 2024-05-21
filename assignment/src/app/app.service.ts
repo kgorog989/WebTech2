@@ -58,6 +58,14 @@ export class AppService {
       );
   }
 
+  updateParfume(id: string, data: any): Observable<any> {
+    const url = `${this.serviceURL}/updateParfume/${id}`;
+    return this.http.put(url, data, { headers: this.headers })
+      .pipe(
+        catchError(this.errorMgmt)
+      );
+  }
+
   setLoggedInUser(user){
     this.user = user;
   }

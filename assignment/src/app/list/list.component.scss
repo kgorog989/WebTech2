@@ -2,12 +2,13 @@ body {
   background-image: url(kep.jpg) ;
   background-size: cover;
   background-position:center;
-  height:720px;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   margin: auto;
 
 
 
-  padding: 100px ;
+  padding: 100px 100px 50px 100px;
 }
 
 .mat-elevation-z8 {
@@ -49,7 +50,20 @@ td {
   color: black;
 }
 
+div{
+  padding-top: 80px;
+}
 
+.chart-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 // kijelentkezés gomb
 .actbtnn {
